@@ -2,7 +2,7 @@ from os import getuid
 import streamlit as st
 import sqlite_utils
 from default_mappings import default_inputs, default_values
-import random
+
 
 class SqliteAutoform:
     """
@@ -11,10 +11,10 @@ class SqliteAutoform:
 
     def __init__(
         self,
-        table,
-        id=None,
-        mappings={'inputs': default_inputs, 'values': default_values},
-        submit=None
+        table: sqlite_utils.Table,
+        id : int = None,
+        mappings : dict  = {'inputs': default_inputs, 'values': default_values},
+        submit : callable = None
     ):
         self.table = table
         self.schema = table.columns
@@ -49,4 +49,3 @@ class SqliteAutoform:
             return st.exception(e)
         finally:
             st.success('Successfully inserted a new row')
-
