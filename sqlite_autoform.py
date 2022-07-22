@@ -9,7 +9,7 @@ class SqliteAutoform:
     """
     def __init__(
         self,
-        table: sqlite_utils.Table,
+        table: any,
         id : int = None,
         mappings : dict  = {'inputs': default_inputs, 'values': default_values},
         submit : callable = None
